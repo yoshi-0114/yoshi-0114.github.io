@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポートフォリオ</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+	<script src="scrolltotop.js" type="text/javascript"></script>
 </head>
 <body>
+    <p id="topbutton">
+		<a href="#top" onclick="$('html,body').animate({ scrollTop: 0 }); return false;">▲TOPへ戻る</a>
+	</p>
+
     <header>
         <h1>ポートフォリオ</h1>
         <nav>
@@ -20,103 +26,212 @@
 
     <section id="about">
         <h2>自己紹介</h2>
-        <p>
+        <div>
             趣味：競技プログラミングへの参加・paizaでのコードテスト(Sランク)<br>
             興味分野：画像解析・機械学習<br>
             使用可能言語・環境：C/C++・Python3・HTML+CSS・Processing(Python)・Arduino IDE(C++)
-        </p>
+        </div>
     </section>
 
     <section id="projects">
         <h2>開発実績</h2>
-        <div class="project">
-            <h3>1. コマンドプロンプト上で動作するテトリスの制作</h3>
-            <p>
+        
+        <nav>
+            <ol>
+                <li><a href="#project1">コマンドプロンプト上で動作するテトリスの制作</a></li>
+                <li><a href="#project2">赤外線距離センサで障害物を避けるロボットカーの制作</a></li>
+                <li><a href="#project3">デプスカメラで障害物を避け，自動で充電するTurtlebot2の制作</a></li>
+                <li><a href="#project4">音声・映像認識によるじゃんけんシミュレーションの制作</a></li>
+                <li><a href="#project5">メール内容保存および本文要約システムの制作</a></li>
+            </ol>
+        </nav>
+
+        <div id="project1" class="project">
+            <h3>1.&nbsp;コマンドプロンプト上で動作するテトリスの制作</h3>
+            <div>
                 <font size="4.7"><b>概要</b></font><br>
                 使用言語：C++<br>
                 プログラム：<a href="https://github.com/yoshi-0114/tetris">WindowsとLinuxのテトリスのコード</a><br>
-                まず、Windows環境でコマンドプロンプトで動作するテトリスを制作し、それをもとにLinuxのターミナルで動作するように変更した。<br>
-                将来的には、本作のアルゴリズムをもとにUnityでの制作も考えている。<br>
+                まず，Windows環境でコマンドプロンプトで動作するテトリスを制作し，それをもとにLinuxのターミナルで動作するように変更した．<br>
+                将来的には，本作のアルゴリズムをもとにUnityでの制作も考えている．<br>
                 <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                1.ランダムにミノと呼ばれるブロックをランダムに出力し、一定以上の時間が経過すると降下する。<br>
-                2.キーボードでのw,a,s,dでミノを移動し、その他のキーで回転させる。<br>
-                3.移動する際は、出力を消去し、新しく出力するような更新作業を行う。<br>
-                4.ミノが一番上まで上がった際はGAME OVERと出力する。<br>
+                <ol>
+                    <li>ランダムにミノと呼ばれるブロックをランダムに出力し，一定以上の時間が経過すると降下．</li>
+                    <li>キーボードでのw,a,s,dでミノを移動し，その他のキーで回転．</li>
+                    <li>移動する際は，出力を消去し，新しく出力するような更新作業を行う．</li>
+                    <li>ミノが一番上まで上がった際はGAME OVERと出力．</li>
+                </ol>
                 <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                上記を処理するプログラムについて説明する。<br>
-                1.ミノは配列を用いて描画し、ランダムに出力する。<br>
-                2.キーボード入力は、_getch()を用いて判別をする。(Linuxの場合getch())<br>
-                3.移動する際の出力の消去は、system()を用いて出力をクリアするコマンドの「cls」を実行し、移動後を出力する。(Linuxの場合「clear」)<br>
-                4.ミノは配列で処理しているので、一番上までミノが到達しているかどうかを「1」の際に確認して、到達していたらGAME OVERと消した行数(Score)を出力してreturn 0を返す。<br>
-            </p>
+                <ol>
+                    <li>ミノは配列を用いて描画し，ランダムに出力．</li>
+                    <li>キーボード入力は，_getch()を用いて判別．(Linuxの場合getch())</li>
+                    <li>移動する際の出力の消去は，system()を用いて出力をクリアするコマンドの「cls」を実行し，移動後を出力．(Linuxの場合「clear」)</li>
+                    <li>ミノは配列で処理しているので，一番上までミノが到達しているかどうかを「1」の際に確認して，到達していたらGAME OVERと消した行数(Score)を出力してreturn 0を返す．</li>
+                </ol>
+            </div>
         </div>
         <br>
-        <div class="project">
-            <h3>2. 赤外線距離センサで障害物を避けるロボットカーの制作</h3>
-            <p>
+        <div id="project2" class="project">
+            <h3>2.&nbsp;赤外線距離センサで障害物を避けるロボットカーの制作</h3>
+            <div>
                 <font size="4.7"><b>概要</b></font><br>
                 開発環境：Arduino IDE(C++)<br>
-                プログラム：<a href="https://github.com/yoshi-0114/robotcar">ロボットカーとセンサのコード</a><br>
-                Arduinoマイコンを用いて、制作したプログラムをモーターに組み込んで動作させる。<br>
-                下の画像のようなロボットカー2機をコの字型コースを走らせタイムを計る。<br>
+                プログラム：<a href="https://github.com/yoshi-0114/robotcar" target="_blank">ロボットカーとセンサのコード</a><br>
+                Arduinoマイコンを用いて，制作したプログラムをモーターに組み込んで動作させる．<br>
+                下の画像のようなロボットカー2機をコの字型コースを走らせタイムを計る．<br>
                 <img src="robotcar.jpg" alt="ロボットカー" width=300"><br>
-                プログラムを組む前に事前に使用するセンサが正しく動作するかの測定実験を行い、正しく動作する数値を記録する必要がある。<br>
-                その際に使用するプログラムをgithub上のsensor.inoに示す。<br>
+                プログラムを組む前に事前に使用するセンサが正しく動作するかの測定実験を行い，正しく動作する数値を記録する必要がある．<br>
+                その際に使用するプログラムをgithub上のsensor.inoに示す．<br>
                 <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                センサは斜め前(左右)と前方向に配置してある。<br>
-                斜め前方向のセンサで左右の距離を保ち、前のセンサで一定距離まで到達すると停止→回転→直進するプログラムを作成する。<br>
-                直進するスピードを速くしすぎると、センサの反応が間に合わず、壁に衝突してしまうことがあるので注意が必要だった。<br>
+                センサは斜め前(左右)と前方向に配置してある．<br>
+                斜め前方向のセンサで左右の距離を保ち，前のセンサで一定距離まで到達すると停止→回転→直進するプログラムを作成する．<br>
+                直進するスピードを速くしすぎると，センサの反応が間に合わず，壁に衝突してしまうことがあるので注意が必要だった．<br>
                 <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                1.初期設定を行い、スイッチが押されるまで角速度センサを更新してLED制御をする。<br>
-                2.ループ関数内では最初にモーターの速度を設定するための変数を定義し、赤外線距離センサの値を読み取る。<br>
-                3.角速度センサを更新し、左もしくは右の赤外線距離センサの値を読み込み基準角速度を計算する。<br>
-                4.計算した基準角速度と実際の角速度の差を用いてモーターの速度を調整し、モーターを動かす。<br>
+                <ol>
+                    <li>初期設定を行い，スイッチが押されるまで角速度センサを更新してLED制御を行う．</li>
+                    <li>ループ関数内では最初にモーターの速度を設定するための変数を定義し，赤外線距離センサの値を読み取る．</li>
+                    <li>角速度センサを更新し，左もしくは右の赤外線距離センサの値を読み込み基準角速度を計算．</li>
+                    <li>計算した基準角速度と実際の角速度の差を用いてモーターの速度を調整し，モーターを動かす．</li>
+                </ol>
+
                 <br><font size="4.7"><b>結果の動画</b></font><br>
                 記録：16.79秒<br>
-                <video width="600" height="300" controls>
-                    <source src="robotcar.mp4" type="video/mp4">
-                </video>
+                <div class="video-custam">
+                    <video controls>
+                        <source src="robotcar.mp4" type="video/mp4">
+                    </video>
+                </div>
             </p>
         </div>
         <br>
-        <div class="project">
-            <h3>3. デプスカメラで障害物を避け、自動で充電するTurtlebot2の制作</h3>
-            <p>
+        <div id="project3" class="project">
+            <h3>3.&nbsp;デプスカメラで障害物を避け，自動で充電するTurtlebot2の制作</h3>
+            <div>
                 <font size="4.7"><b>概要</b></font><br>
                 開発環境：Linux・ROS(Python3)<br>
-                プログラム：<a href="https://github.com/yoshi-0114/Turtlebot2">Turtlebot2を動作させるコード</a><br>
-                Turtlebot2というロボット掃除機に土台とカメラを取り付けたロボットを使用する。<br>
-                PCを土台の上に置き、コードを繋げてプログラム通りに操作をさせる。<br>
-                デプスカメラを用いて障害物を避ける。<br>
-                充電器からの赤外線を受信し、充電器とドッキングする。<br>
+                プログラム：<a href="https://github.com/yoshi-0114/Turtlebot2" target="_blank">Turtlebot2を動作させるコード</a><br>
+                Turtlebot2というロボット掃除機に土台とカメラを取り付けたロボットを使用する．<br>
+                PCを土台の上に置き，コードを繋げてプログラム通りに操作をさせる．<br>
+                デプスカメラを用いて障害物を避ける．<br>
+                充電器からの赤外線を受信し，充電器とドッキングする．<br>
                 <br><font size="4.7"><b>下準備</b></font><br>
-                ROSを利用するため、下記の作業をこれらを行う必要がある。<br>
-                1.ROSのインストールする。<br>
-                2.catkin_makeでのビルド<br>
-                3.ROSに関連する環境変数にsetup.bashを用いてワークスペースのパスを追加<br>
-                4.catkin_create_pkgでのパッケージの作成<br>
+                ROSを利用するため，下記の作業をこれらを行う必要がある．<br>
+                <ol>
+                    <li>ROSをインストール．</li>
+                    <li>catkin_makeでのビルド．</li>
+                    <li>ROSに関連する環境変数にsetup.bashを用いてワークスペースのパスを追加．</li>
+                    <li>catkin_create_pkgでのパッケージの作成．</li>
+                </ol>
                 <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                デプスカメラを用いて障害物との距離を測定し、一定の距離まで接近したら、停止→回転→直進をする。<br>
-                今回は充電器の場所とそれまでの壁の数が分かっていたので、if()を使って指定回数曲がったら充電器とドッキングするプログラムを呼び出す。<br>
-                ドッキングの際は、赤外線を探知できるようにある程度後退する<br>
+                デプスカメラを用いて障害物との距離を測定し，一定の距離まで接近したら，停止→回転→直進を行う．<br>
+                今回は充電器の場所とそれまでの壁の数が分かっていたので，if()を使って指定回数曲がったら充電器とドッキングするプログラムを呼び出す．<br>
+                ドッキングの際は，赤外線を探知できるようにある程度後退する．<br>
                 <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                1.ROSノードを初期化し、速度指令を'/cmd_vel_mux/input/teleop'トピックに送信するためのパブリッシャーを設定する。<br>
-                2.'camera/depth/image_raw'トピックから深度画像を取得し、特定領域の平均深度を計算する。<br>
-                3.平均深度がしきい値以上の場合、ロボットを直進させる。<br>
-                4.平均深度がしきい値未満の場合、ロボットを回転させて障害物を回避し、指定回数回転後にドッキングプログラムを起動する。<br>
-                5.Twistメッセージを使用して、ロボットの直進と回転の速度指令を設定し、指定回数だけパブリッシュする。<br>
-                6.ROSノードを初期化し、メインの実行ループでロボットの動作を開始する。<br>
+                <ol>
+                    <li>ROSノードを初期化し，速度指令を'/cmd_vel_mux/input/teleop'トピックに送信するためのパブリッシャーを設定．</li>
+                    <li>'camera/depth/image_raw'トピックから深度画像を取得し，特定領域の平均深度を計算．</li>
+                    <li>平均深度がしきい値以上の場合，ロボットを直進．</li>
+                    <li>平均深度がしきい値未満の場合，ロボットを回転させて障害物を回避し，指定回数回転後にドッキングプログラムを起動．</li>
+                    <li>Twistメッセージを使用して，ロボットの直進と回転の速度指令を設定し，指定回数だけパブリッシュ．</li>
+                    <li>ROSノードを初期化し，メインの実行ループでロボットの動作を開始．</li>
+                </ol>
                 <br><font size="4.7"><b>結果の動画</b></font><br>
-                <video width="600" height="300" controls>
-                    <source src="Turtlebot2.mp4" type="video/mp4">
-                </video>
-            </p>
+                <div class="video-custam">
+                    <video controls>
+                        <source src="Turtlebot2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </div>
+        <br>
+        <div id="project4" class="project">
+            <h3>4.&nbsp;音声・映像認識によるじゃんけんシミュレーションの制作</h3>
+            <div>
+                <font size="4.7"><b>概要</b></font><br>
+                使用言語：Python2.7，Python3<br>
+                プログラム：<a href="https://github.com/yoshi-0114/audio_jannkenn" target="_blank">音声認識によるじゃんけんシミュレーションのコード</a><br>
+                <span style="margin-left: 6em;"></span><a href="https://github.com/yoshi-0114/video_jannkenn" target="_blank">映像認識によるじゃんけんシミュレーションのコード</a><br>
+                音声または手の形に基づいてChoregraphe内のNaoqiとじゃんけんを行う．<br>
+                音声・映像認識はPython3，Choregrapheの制御はPython2.7で行う．<br>
+                Naoqiのじゃんけんの手はランダムで出し，自分の手と比較して勝敗を判定する．<br>
+                <br><font size="4.7"><b>行う処理の説明</b></font><br>
+                <ol>
+                    <li>音声または手の形から「グー」「チョキ」「パー」を判定し，判定結果をtxtファイルに書き出す．</li>
+                    <li>Naoqiの手と自分の手を比較し，勝敗を判定する．</li>
+                    <li>じゃんけんの結果に基づいて，Naoqiがリアクションを行う．</li>
+                </ol>
+                <br><font size="4.7"><b>プログラムの説明</b></font><br>
+                <ol>
+                    <li>じゃんけんの手を認識．</li>
+                     <ul>
+                        <li>音声認識：google&nbsp;speech-to-text&nbsp;APIを用いて音声を認識し，「グー」「チョキ」「パー」を判定．</li>
+                        <li>映像認識：手の特徴点から形を認識し，「グー」「チョキ」「パー」を判定．</li>
+                     </ul>
+                    <li>Naoqiがランダムに「グー」「チョキ」「パー」の手を選び、対応するジェスチャーを実行．</li>
+                    <li>Naoqiの手とユーザーの手を比較して，勝敗を判定．</li>
+                    <li>勝敗に応じたリアクションをNaoqiがし，感情表現を行う．</li>
+                    <li>引き分けの際は，1~4を再度実行．</li>
+                </ol>
+                音声認識のプログラムを実行する際は，以下のコマンドを実行する．<br>
+                python3 .\hand.py<br>
+                python3 .\hand_decide.py<br>
+                映像認識のプログラムを実行する際は，以下のコマンドを実行する．<br>
+                python3 .\audio_decide.py<br>
+                <br><font size="4.7"><b>結果の動画</b></font><br>
+                音声認識によるじゃんけんシミュレーション<br>
+                <div class="video-custam">
+                    <video controls>
+                        <source src="audio_jannkenn.mp4" type="video/mp4">
+                    </video>
+                </div><br>
+                <br>映像認識によるじゃんけんシミュレーション<br>
+                <div class="video-custam">
+                    <video controls>
+                        <source src="video_jannkenn.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="project5" class="project">
+            <h3>5.&nbsp;メール内容保存および本文要約システムの制作</h3>
+            <div>
+                <font size="4.7"><b>概要</b></font><br>
+                使用言語：Python3<br>
+                プログラム：<a href="https://github.com/yoshi-0114/mail_database" target="_blank">メール内容保存および本文要約システムのコード</a><br>
+                メール内容をMySQLに保存し，WEB上に表示する．<br>
+                また，メールの本文を要約し，要約結果を保存する．<br>
+                <br><font size="4.7"><b>行う処理の説明</b></font><br>
+                メールをIMAPで取得し，件名，送信者，受信日時，本文などに分割してデータベースに保存．<br>
+                保存したデータはWEB上に表示され，CSVへの保存も可能．<br>
+                新規メールアドレスからのメールの場合は，ハイライト表示．<br>
+                <br><font size="4.7"><b>プログラムの説明</b></font><br>
+                <ol>
+                    <li>メールアドレスとパスワードを入力すると，IMAPを使用して指定されたメールアカウントに接続し，新着メールや既存メールを取得．</li>
+                    <li>MySQLデータベースに接続し，取得したメールデータを保存．</li>
+                    <li>Google&nbsp;Gemini&nbsp;APIやLexRankアルゴリズムを使用し，メール本文の要約を生成．</li>
+                    <li>左側のメールを選択すると，右側に本文を表示．</li>
+                    <li>メール本文からメールアドレスやステータスを取得し，データベースに保存．</li>
+                    <li>別のタブで、データベースの内容を5分ごとに自動更新して表示．</li>
+                </ol>
+                <br><font size="4.7"><b>結果の動画</b></font><br>
+                ※デモ動画のため，メールアドレスを隠しています<br>
+                <div class="video-custam">
+                    <video controls>
+                        <source src="mail_database.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <br>
+
     </section>
 
     <section id="contact">
         <h2>連絡先</h2>
-        <p>Email: <a href="mailto:er22076-0633@sti.chubu.ac.jp">er22076-0633@sti.chubu.ac.jp</a></p>
+        <div>
+            Email: <a href="mailto:er22076-0633@sti.chubu.ac.jp">er22076-0633@sti.chubu.ac.jp</a>
+        </div>
     </section>
 
     <footer>
