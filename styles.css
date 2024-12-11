@@ -42,3 +42,66 @@ footer {
 .project {
     margin: 1rem 0;
 }
+
+#projects nav {
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 20px;
+}
+
+li a {
+    font-size: 17px;
+}
+
+.project ol {
+    margin: 0;
+    padding: 0;
+    padding-left: 1em;
+}
+
+.project ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 1em;
+}
+
+.video-custam {
+    width: 100%;
+    max-width: 600px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+#topbutton {
+	position: fixed;
+	bottom: 18px;
+	right: 18px;
+	width: 7em;
+
+	display: none;
+
+	background-color: rgba(0, 0, 0, 0.4);
+	opacity: 0.75;
+	border-radius: 24px;
+	text-align: center;
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0px;
+	padding: 10px;
+}
+#topbutton a {
+	color: white;
+	text-decoration: none;
+}
+#topbutton a:hover {
+	color: yellow;
+	text-decoration: underline;
+}
