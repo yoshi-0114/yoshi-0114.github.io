@@ -1,252 +1,174 @@
-<!DOCTYPE html>
-<html lang="jp">
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
-	<script src="scrolltotop.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="中部大学大学院で機械学習・データ分析とWebアプリ開発に取り組む yoshi-0114 のポートフォリオ。メール連携型CRM、学習行動異常検知ダッシュボード、研究内容を紹介します。">
+  <meta name="theme-color" content="#f7f8fb">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Engineer Portfolio">
+  <meta property="og:description" content="AI・データ分析とWebアプリ開発に取り組む学生のポートフォリオ。">
+  <meta property="og:url" content="https://yoshi-0114.github.io/">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <title>Portfolio</title>
+  <link rel="canonical" href="https://yoshi-0114.github.io/">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./scrolltotop.js" defer></script>
 </head>
-<body>
-    <p id="topbutton">
-		<a href="#top" onclick="$('html,body').animate({ scrollTop: 0 }); return false;">▲TOPへ戻る</a>
-	</p>
+<body id="top">
+  <a class="skip-link" href="#main">メインコンテンツへ移動</a>
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <header>
-        <h1>ポートフォリオ</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">自己紹介</a></li>
-                <li><a href="#projects">開発実績</a></li>
-                <li><a href="#contact">連絡先</a></li>
-            </ul>
-        </nav>
-    </header>
+      <nav class="primary-nav" aria-label="メインナビゲーション">
+                <a href="#about">自己紹介</a>
+        <a href="#featured">制作物</a><a href="#other-projects">その他の作品</a><a href="#skills">技術</a><a href="#research">研究</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="about">
-        <h2>自己紹介</h2>
-        <div>
-            <!-- 趣味：競技プログラミングへの参加・paizaでのコードテスト(Sランク)<br> -->
-            興味分野：画像解析・機械学習<br>
-            使用可能言語・環境：C/C++・Python3・HTML+CSS・Processing(Python)・Arduino IDE(C++)
-        </div>
+  <main id="main">
+    <section class="profile-section section-space" id="about" aria-labelledby="about-title">
+      <div class="container profile-inner">
+        <h1 id="about-title">自己紹介</h1>
+        <p class="profile-affiliation">中部大学大学院 工学研究科 ロボット理工学専攻 <span>｜</span> 2028年3月修了見込み</p>
+        <p class="profile-summary">Pythonを中心に機械学習・データ分析とWebアプリ開発に取り組んでいます。C/C++、SQL、HTML/CSSも制作物で使用しました。AI技術を実際に使えるシステムにすることに関心があります。</p>
+        <p class="profile-links"><a href="#featured">主な制作物を見る</a></p>
+      </div>
     </section>
 
-    <section id="projects">
-        <h2>開発実績</h2>
+    <section class="section-space section-featured" id="featured" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-heading"><div><h2 id="featured-title">主な制作物</h2></div></div>
+
+        <article class="featured-card" aria-labelledby="crm-title">
+          <div class="featured-grid">
+            <div class="featured-content">
+              <h3 id="crm-title">メール連携型CRM</h3>
+              <p class="project-intro">受信メールを顧客情報としてまとめ、検索や振り返りをしやすくするStreamlitアプリです。メール取得・要約・データ管理・一覧表示をつなぎ、日々のメールを扱いやすい形に整理します。</p>
+              <div class="project-actions">
+                <a class="button button-primary button-small" href="https://github.com/yoshi-0114/email-crm-dashboard" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">GitHubリポジトリ <span aria-hidden="true">↗</span></a>
+                <a class="button button-outline button-small" href="https://github.com/yoshi-0114/email-crm-dashboard#セットアップ" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">README・起動方法 <span aria-hidden="true">↗</span></a>
+              </div>
+              <p class="demo-status"><span class="status-dot" aria-hidden="true"></span>公開中の実行デモはありません。READMEの手順でローカル起動できます。</p>
+              <div class="tech-row" aria-label="使用技術"><span>Python</span><span>Streamlit</span><span>IMAP</span><span>MySQL</span><span>Gemini API（任意）</span></div>
+            </div>
+            <div class="system-card" aria-label="システム構成">
+              <p class="panel-kicker">システム構成</p>
+              <div class="flow-step"><span>01</span><strong>IMAP over SSL</strong><small>受信メールを取得</small></div><div class="flow-connector" aria-hidden="true"></div>
+              <div class="flow-step"><span>02</span><strong>mail.py</strong><small>本文抽出・要約</small></div><div class="flow-connector" aria-hidden="true"></div>
+              <div class="flow-step"><span>03</span><strong>MySQL</strong><small>crm_emails に保存</small></div><div class="flow-connector" aria-hidden="true"></div>
+              <div class="flow-step"><span>04</span><strong>data_display.py</strong><small>検索・詳細・CSV</small></div>
+            </div>
+          </div>
+          <div class="project-detail-grid">
+            <section class="detail-block"><h4><span class="detail-marker" aria-hidden="true">A</span>重複取得を防ぐ識別</h4><p>IMAP UIDはUIDVALIDITYと組み合わせ、メールボックス・フォルダーも含めた一意制約をMySQLに設定。再取得やサーバー側のUID更新があっても、同じメールを重ねて登録しにくい構成です。</p></section>
+            <section class="detail-block"><h4><span class="detail-marker" aria-hidden="true">B</span>保存時の整合性</h4><p>同一メールボックスの取込をMySQLロックで直列化し、1回の保存をトランザクションで確定。途中で失敗した場合はロールバックし、一意制約でも重複を抑えます。</p></section>
+            <section class="detail-block"><h4><span class="detail-marker" aria-hidden="true">C</span>AI要約の失敗に備える</h4><p>Gemini APIは任意機能とし、未設定・応答失敗時はローカルの抽出要約へ切り替えます。APIキーなどの設定は環境変数またはStreamlit Secretsから読み込みます。</p></section>
+            <section class="detail-block"><h4><span class="detail-marker" aria-hidden="true">D</span>日常の検索・出力</h4><p>メールボックス、顧客区分、受信期間、キーワードで絞り込み、本文・要約の確認やタグ編集ができます。CSVはUTF-8 BOM付きで、数式として解釈される値も無害化します。</p></section>
+          </div>
+          <div class="security-note"><strong>認証情報の扱い</strong><span>画面パスワード、MySQL接続情報、Gemini APIキーは設定値として管理。メール接続時のアプリパスワードは画面から入力します。</span></div>
+        </article>
+
+        <article class="featured-card anomaly-card" aria-labelledby="anomaly-title">
+          <div class="featured-grid anomaly-feature-grid">
+            <div class="featured-content">
+              <h3 id="anomaly-title">学習行動異常検知ダッシュボード</h3>
+              <p class="project-intro">電子教材の操作ログを学生・週単位に集計し、通常と異なる行動や似た行動タイプを確認するStreamlitアプリです。公開版には架空の学生・授業・操作履歴だけを使用しています。</p>
+              <div class="project-actions">
+                <a class="button button-primary button-small" href="https://github.com/yoshi-0114/anomaly-app" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">GitHubリポジトリ <span aria-hidden="true">↗</span></a>
+                <a class="button button-outline button-small" href="https://github.com/yoshi-0114/anomaly-app#学習行動-異常検知ダッシュボード" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">README <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="tech-row" aria-label="使用技術"><span>Python</span><span>Streamlit</span><span>pandas</span><span>scikit-learn</span><span>NumPy</span></div>
+              <div class="analysis-flow"><p class="panel-kicker">分析の流れ</p>
+                <ol><li><span>01</span>操作ログを学生 × 週の特徴量に集計</li><li><span>02</span>標準化した特徴量をIsolation Forestで分析</li><li><span>03</span>PCAで分布を可視化し、K-Meansで行動を分類</li><li><span>04</span>条件変更・詳細確認・CSV出力を提供</li></ol>
+              </div>
+            </div>
+            <figure class="demo-figure">
+              <a class="screenshot-link" href="https://github.com/yoshi-0114/anomaly-app/blob/main/docs/public-dashboard-overview.png" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><img src="https://raw.githubusercontent.com/yoshi-0114/anomaly-app/68c3a71754da49e48ffbc2648cd5e3fc46430003/docs/public-dashboard-overview.png" alt="学習行動異常検知ダッシュボードの公開デモ画面" loading="lazy" decoding="async"></a>
+              <figcaption>README掲載の実際の公開デモ画面</figcaption>
+              <details class="video-disclosure"><summary>実操作のデモ動画を見る</summary>
+                <div class="video-frame"><video controls preload="none" playsinline aria-label="学習行動異常検知ダッシュボードの実操作デモ"><source src="https://raw.githubusercontent.com/yoshi-0114/anomaly-app/68c3a71754da49e48ffbc2648cd5e3fc46430003/demo/public_dashboard_demo.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video></div>
+                <p class="video-fallback"><a href="https://github.com/yoshi-0114/anomaly-app/blob/main/demo/public_dashboard_demo.mp4" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">GitHubで動画を開く <span aria-hidden="true">↗</span></a></p>
+              </details>
+            </figure>
+          </div>
+          <div class="project-detail-grid">
+            <section class="detail-block"><h4><span class="detail-marker" aria-hidden="true">A</span>分析の単位と特徴量</h4><p>学生・週を1レコードとし、操作数・活動時間・閲覧ページ数・戻る操作率・書き込み率などを集計。選択したコース・週の範囲で分析条件を変更できます。</p></section>
+            <section class="detail-block"><h4><span class="detail-marker" aria-hidden="true">B</span>結果の見方を限定</h4><p>Isolation Forestの結果を相対的な要確認順位として表示。スコアは異常の確率でも、成績・不正・診断の判定でもありません。詳細画面で操作内訳と時系列ログを確認できます。</p></section>
+          </div>
+          <p class="synthetic-note"><strong>公開デモと学部研究は別のものです。</strong> この公開アプリは集計特徴量とIsolation Forestを使う合成データのデモで、Transformer Encoderは実装されていません。合成データでの結果を実データ上の研究成果として扱っていません。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-space" id="other-projects" aria-labelledby="other-title">
+      <div class="container">
+        <div class="section-heading"><div><h2 id="other-title">その他の作品</h2></div></div>
+        <div class="other-grid">
+          <article class="other-card" aria-labelledby="turtlebot-title">
+            <h3 id="turtlebot-title">Turtlebot2</h3>
+            <p>深度カメラの情報を使って障害物を避け、既知のコース上で充電器へのドッキング動作につなげるロボット制作です。Linux上でROSとPythonを使い、移動指令を制御しました。</p>
+            <div class="tech-row"><span>ROS</span><span>Python</span><span>Linux</span></div>
+            <div class="other-links"><a href="https://github.com/yoshi-0114/Turtlebot2" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">GitHub <span aria-hidden="true">↗</span></a></div>
+            <details class="video-disclosure"><summary>動作動画を見る</summary><div class="video-frame"><video controls preload="none" playsinline aria-label="Turtlebot2の動作動画"><source src="Turtlebot2.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video></div></details>
+          </article>
+
+          <article class="other-card" aria-labelledby="robotcar-title">
+            <figure class="other-thumb"><img src="./robotcar.jpg" alt="赤外線距離センサーを搭載したロボットカー" loading="lazy" decoding="async"></figure>
+            <h3 id="robotcar-title">ロボットカー</h3>
+            <p>Arduinoと赤外線距離センサーで壁との距離を読み、コースを走行するロボットカーです。センサーの応答が追いつかず衝突する課題に対し、速度や曲がる条件を調整しました。</p>
+            <div class="tech-row"><span>Arduino</span><span>C++</span><span>センサー制御</span></div>
+            <div class="other-links"><a href="https://github.com/yoshi-0114/robotcar" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">GitHub <span aria-hidden="true">↗</span></a></div>
+            <details class="video-disclosure"><summary>走行動画を見る</summary><div class="video-frame"><video controls preload="none" playsinline aria-label="ロボットカーの走行動画"><source src="robotcar.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video></div></details>
+          </article>
+
+          <article class="other-card" aria-labelledby="janken-title">
+            <h3 id="janken-title">音声・映像認識によるじゃんけん</h3>
+            <p>音声または手の形から「グー・チョキ・パー」を判定し、ロボットとの勝敗に応じた動作につなげる作品です。入力の認識とChoregraphe / NAOqi側の制御を組み合わせました。</p>
+            <div class="tech-row"><span>Python 2.7 / 3</span><span>Speech-to-Text</span><span>Choregraphe</span></div>
+            <div class="other-links"><a href="https://github.com/yoshi-0114/audio_jannkenn" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">音声認識コード <span aria-hidden="true">↗</span></a><a href="https://github.com/yoshi-0114/video_jannkenn" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">映像認識コード <span aria-hidden="true">↗</span></a></div>
+            <details class="video-disclosure"><summary>動作動画を見る</summary><p class="video-label">音声認識</p><div class="video-frame"><video controls preload="none" playsinline aria-label="音声認識によるじゃんけんの動画"><source src="audio_jannkenn.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video></div><p class="video-label">映像認識</p><div class="video-frame"><video controls preload="none" playsinline aria-label="映像認識によるじゃんけんの動画"><source src="video_jannkenn.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video></div></details>
+          </article>
+
+          <article class="other-card" aria-labelledby="tetris-title">
+            <h3 id="tetris-title">C++によるテトリス</h3>
+            <p>コマンドプロンプト上で動くテトリスを制作し、Windows版をもとにLinuxターミナルでも動くように調整しました。配列による盤面・ブロック管理と、環境に合わせたキー入力を扱っています。</p>
+            <div class="tech-row"><span>C++</span><span>Windows</span><span>Linux</span></div>
+            <div class="other-links"><a href="https://github.com/yoshi-0114/tetris" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">GitHub <span aria-hidden="true">↗</span></a></div>
+            <details class="video-disclosure"><summary>動作動画を見る</summary><div class="video-frame"><video controls preload="none" playsinline aria-label="C++テトリスの動作動画"><source src="tetoris.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video></div></details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space section-muted" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading"><div><h2 id="skills-title">開発で使った技術</h2></div></div>
+        <div class="skills-grid">
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">01</span><h3>言語</h3><p>Python、C / C++、SQL、HTML / CSS</p></article>
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">02</span><h3>機械学習・データ分析</h3><p>scikit-learn、pandas、NumPy</p></article>
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">03</span><h3>Web・データベース</h3><p>Streamlit、MySQL</p></article>
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">04</span><h3>開発環境・ロボット</h3><p>Linux、ROS、Arduino</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <div class="section-heading"><div><h2 id="research-title">研究について</h2></div></div>
+        <p class="education-line"><strong>中部大学大学院 工学研究科 ロボット理工学専攻</strong><span>2028年3月 修了見込み</span></p>
+        <div class="research-grid">
+          <article class="research-card"><p class="research-stage">学部研究</p><h3>電子教材ログを用いた学習行動の異常検知</h3><p>操作ログから学習行動の特徴を捉え、Transformer Encoderによる文脈的な特徴表現とIsolation Forestによる教師なし異常検知を扱いました。成果は国際会議 EDM 2026 の Poster/Demo と CLE49 で発表しました。</p><p class="research-links"><a href="https://educationaldatamining.org/edm2026/proceedings/2026.EDM.poster-demo-papers.410/index.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">EDM 2026 Poster/Demo 論文 <span aria-hidden="true">↗</span></a><a href="https://www.ipsj.or.jp/kenkyukai/event/cle49.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">CLE49 発表ページ（情報処理学会） <span aria-hidden="true">↗</span></a></p><span class="research-tag">学部研究・発表済み</span></article>
+          <article class="research-card"><p class="research-stage">修士研究（進行中）</p><h3>講義動画を対象とした学習支援チャットボット</h3><p>Knowledge Graphで概念間の関係を活用した学習支援チャットボットの研究に取り組んでいます。</p><span class="research-tag">研究進行中</span></article>
+        </div>
         
-        <nav>
-            <ol>
-                <li><a href="#project1">コマンドプロンプト上で動作するテトリスの制作</a></li>
-                <li><a href="#project2">赤外線距離センサで障害物を避けるロボットカーの制作</a></li>
-                <li><a href="#project3">デプスカメラで障害物を避け，自動で充電するTurtlebot2の制作</a></li>
-                <li><a href="#project4">音声・映像認識によるじゃんけんシミュレーションの制作</a></li>
-                <li><a href="#project5">メール内容保存および本文要約システムの制作</a></li>
-            </ol>
-        </nav>
-
-        <div id="project1" class="project">
-            <h3>1.&nbsp;コマンドプロンプト上で動作するテトリスの制作</h3>
-            <div>
-                <font size="4.7"><b>概要</b></font><br>
-                使用言語：C++<br>
-                プログラム：<a href="https://github.com/yoshi-0114/tetris" target="_blank">WindowsとLinuxのテトリスのコード</a><br>
-                まず，Windows環境でコマンドプロンプトで動作するテトリスを制作し，それをもとにLinuxのターミナルで動作するように変更した．<br>
-                将来的には，本作のアルゴリズムをもとにUnityでの制作も考えている．<br>
-                <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                <ol>
-                    <li>ランダムにミノと呼ばれるブロックをランダムに出力し，一定以上の時間が経過すると降下．</li>
-                    <li>キーボードでのw,a,s,dでミノを移動し，その他のキーで回転．</li>
-                    <li>移動する際は，出力を消去し，新しく出力するような更新作業を行う．</li>
-                    <li>ミノが一番上まで上がった際はGAME OVERと出力．</li>
-                </ol>
-                <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                <ol>
-                    <li>ミノは配列を用いて描画し，ランダムに出力．</li>
-                    <li>キーボード入力は，_getch()を用いて判別．(Linuxの場合getch())</li>
-                    <li>移動する際の出力の消去は，system()を用いて出力をクリアするコマンドの「cls」を実行し，移動後を出力．(Linuxの場合「clear」)</li>
-                    <li>ミノは配列で処理しているので，一番上までミノが到達しているかどうかを「1」の際に確認して，到達していたらGAME OVERと消した行数(Score)を出力してreturn 0を返す．</li>
-                </ol>
-		<br><font size="4.7"><b>結果の動画</b></font><br>
-                Linux環境の動作動画です．<br>
-                <div class="video-custam">
-                    <video controls>
-                        <source src="tetoris.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div id="project2" class="project">
-            <h3>2.&nbsp;赤外線距離センサで障害物を避けるロボットカーの制作</h3>
-            <div>
-                <font size="4.7"><b>概要</b></font><br>
-                開発環境：Arduino IDE(C++)<br>
-                プログラム：<a href="https://github.com/yoshi-0114/robotcar" target="_blank">ロボットカーとセンサのコード</a><br>
-                Arduinoマイコンを用いて，制作したプログラムをモーターに組み込んで動作させる．<br>
-                下の画像のようなロボットカー2機をコの字型コースを走らせタイムを計る．<br>
-                <img src="robotcar.jpg" alt="ロボットカー" width=300"><br>
-                プログラムを組む前に事前に使用するセンサが正しく動作するかの測定実験を行い，正しく動作する数値を記録する必要がある．<br>
-                その際に使用するプログラムをgithub上のsensor.inoに示す．<br>
-                <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                センサは斜め前(左右)と前方向に配置してある．<br>
-                斜め前方向のセンサで左右の距離を保ち，前のセンサで一定距離まで到達すると停止→回転→直進するプログラムを作成する．<br>
-                直進するスピードを速くしすぎると，センサの反応が間に合わず，壁に衝突してしまうことがあるので注意が必要だった．<br>
-                <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                <ol>
-                    <li>初期設定を行い，スイッチが押されるまで角速度センサを更新してLED制御を行う．</li>
-                    <li>ループ関数内では最初にモーターの速度を設定するための変数を定義し，赤外線距離センサの値を読み取る．</li>
-                    <li>角速度センサを更新し，左もしくは右の赤外線距離センサの値を読み込み基準角速度を計算．</li>
-                    <li>計算した基準角速度と実際の角速度の差を用いてモーターの速度を調整し，モーターを動かす．</li>
-                </ol>
-
-                <br><font size="4.7"><b>結果の動画</b></font><br>
-                記録：16.79秒<br>
-                <div class="video-custam">
-                    <video controls>
-                        <source src="robotcar.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </p>
-        </div>
-        <br>
-        <div id="project3" class="project">
-            <h3>3.&nbsp;デプスカメラで障害物を避け，自動で充電するTurtlebot2の制作</h3>
-            <div>
-                <font size="4.7"><b>概要</b></font><br>
-                開発環境：Linux・ROS(Python3)<br>
-                プログラム：<a href="https://github.com/yoshi-0114/Turtlebot2" target="_blank">Turtlebot2を動作させるコード</a><br>
-                Turtlebot2というロボット掃除機に土台とカメラを取り付けたロボットを使用する．<br>
-                PCを土台の上に置き，コードを繋げてプログラム通りに操作をさせる．<br>
-                デプスカメラを用いて障害物を避ける．<br>
-                充電器からの赤外線を受信し，充電器とドッキングする．<br>
-                <br><font size="4.7"><b>下準備</b></font><br>
-                ROSを利用するため，下記の作業をこれらを行う必要がある．<br>
-                <ol>
-                    <li>ROSをインストール．</li>
-                    <li>catkin_makeでのビルド．</li>
-                    <li>ROSに関連する環境変数にsetup.bashを用いてワークスペースのパスを追加．</li>
-                    <li>catkin_create_pkgでのパッケージの作成．</li>
-                </ol>
-                <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                デプスカメラを用いて障害物との距離を測定し，一定の距離まで接近したら，停止→回転→直進を行う．<br>
-                今回は充電器の場所とそれまでの壁の数が分かっていたので，if()を使って指定回数曲がったら充電器とドッキングするプログラムを呼び出す．<br>
-                ドッキングの際は，赤外線を探知できるようにある程度後退する．<br>
-                <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                <ol>
-                    <li>ROSノードを初期化し，速度指令を'/cmd_vel_mux/input/teleop'トピックに送信するためのパブリッシャーを設定．</li>
-                    <li>'camera/depth/image_raw'トピックから深度画像を取得し，特定領域の平均深度を計算．</li>
-                    <li>平均深度がしきい値以上の場合，ロボットを直進．</li>
-                    <li>平均深度がしきい値未満の場合，ロボットを回転させて障害物を回避し，指定回数回転後にドッキングプログラムを起動．</li>
-                    <li>Twistメッセージを使用して，ロボットの直進と回転の速度指令を設定し，指定回数だけパブリッシュ．</li>
-                    <li>ROSノードを初期化し，メインの実行ループでロボットの動作を開始．</li>
-                </ol>
-                <br><font size="4.7"><b>結果の動画</b></font><br>
-                <div class="video-custam">
-                    <video controls>
-                        <source src="Turtlebot2.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div id="project4" class="project">
-            <h3>4.&nbsp;音声・映像認識によるじゃんけんシミュレーションの制作</h3>
-            <div>
-                <font size="4.7"><b>概要</b></font><br>
-                開発環境：Choregraphe・Python2.7・Python3<br>
-                プログラム：<a href="https://github.com/yoshi-0114/audio_jannkenn" target="_blank">音声認識によるじゃんけんシミュレーションのコード</a><br>
-                <span style="margin-left: 6em;"></span><a href="https://github.com/yoshi-0114/video_jannkenn" target="_blank">映像認識によるじゃんけんシミュレーションのコード</a><br>
-                音声または手の形に基づいてChoregraphe内のNaoqiとじゃんけんを行う．<br>
-                音声・映像認識はPython3，Choregrapheの制御はPython2.7で行う．<br>
-                Naoqiのじゃんけんの手はランダムで出し，自分の手と比較して勝敗を判定する．<br>
-                <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                <ol>
-                    <li>音声または手の形から「グー」「チョキ」「パー」を判定し，判定結果をtxtファイルに書き出す．</li>
-                    <li>Naoqiの手と自分の手を比較し，勝敗を判定する．</li>
-                    <li>じゃんけんの結果に基づいて，Naoqiがリアクションを行う．</li>
-                </ol>
-                <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                <ol>
-                    <li>じゃんけんの手を認識．</li>
-                     <ul>
-                        <li>音声認識：google&nbsp;speech-to-text&nbsp;APIを用いて音声を認識し，「グー」「チョキ」「パー」を判定．</li>
-                        <li>映像認識：手の特徴点から形を認識し，「グー」「チョキ」「パー」を判定．</li>
-                     </ul>
-                    <li>Naoqiがランダムに「グー」「チョキ」「パー」の手を選び，対応するジェスチャーを実行．</li>
-                    <li>Naoqiの手とユーザーの手を比較して，勝敗を判定．</li>
-                    <li>勝敗に応じたリアクションをNaoqiがし，感情表現を行う．</li>
-                    <li>引き分けの際は，1~4を再度実行．</li>
-                </ol>
-                音声認識のプログラムを実行する際は，以下のコマンドを実行する．<br>
-                python3 .\hand.py<br>
-                python3 .\hand_decide.py<br>
-                映像認識のプログラムを実行する際は，以下のコマンドを実行する．<br>
-                python3 .\audio_decide.py<br>
-                <br><font size="4.7"><b>結果の動画</b></font><br>
-                音声認識によるじゃんけんシミュレーション<br>
-                <div class="video-custam">
-                    <video controls>
-                        <source src="audio_jannkenn.mp4" type="video/mp4">
-                    </video>
-                </div><br>
-                <br>映像認識によるじゃんけんシミュレーション<br>
-                <div class="video-custam">
-                    <video controls>
-                        <source src="video_jannkenn.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div id="project5" class="project">
-            <h3>5.&nbsp;メール内容保存および本文要約システムの制作</h3>
-            <div>
-                <font size="4.7"><b>概要</b></font><br>
-                使用言語：Python3<br>
-                プログラム：<a href="https://github.com/yoshi-0114/mail_database" target="_blank">メール内容保存および本文要約システムのコード</a><br>
-                メール内容をMySQLに保存し，WEB上に表示する．<br>
-                また，メールの本文を要約し，要約結果を保存する．<br>
-                <br><font size="4.7"><b>行う処理の説明</b></font><br>
-                メールをIMAPで取得し，件名，送信者，受信日時，本文などに分割してデータベースに保存．<br>
-                保存したデータはWEB上に表示され，CSVへの保存も可能．<br>
-                新規メールアドレスからのメールの場合は，ハイライト表示．<br>
-                <br><font size="4.7"><b>プログラムの説明</b></font><br>
-                <ol>
-                    <li>メールアドレスとパスワードを入力すると，IMAPを使用して指定されたメールアカウントに接続し，新着メールや既存メールを取得．</li>
-                    <li>MySQLデータベースに接続し，取得したメールデータを保存．</li>
-                    <li>Google&nbsp;Gemini&nbsp;APIやLexRankアルゴリズムを使用し，メール本文の要約を生成．</li>
-                    <li>左側のメールを選択すると，右側に本文を表示．</li>
-                    <li>メール本文からメールアドレスやステータスを取得し，データベースに保存．</li>
-                    <li>別のタブで，データベースの内容を5分ごとに自動更新して表示．</li>
-                </ol>
-                <br><font size="4.7"><b>結果の動画</b></font><br>
-                ※デモ動画のため，メールアドレスを隠しています<br>
-                <div class="video-custam">
-                    <video controls>
-                        <source src="mail_database.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-        <br>
-
+      </div>
     </section>
 
-    <section id="contact">
-        <h2>連絡先</h2>
-        <div>
-            <!-- Email: <a href="mailto:er22076-0633@sti.chubu.ac.jp">er22076-0633@sti.chubu.ac.jp</a> -->
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 ポートフォリオ</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026</span></div></footer>
+  <a class="back-to-top" id="backToTop" href="#top" aria-label="ページ先頭へ戻る" hidden>↑</a>
 </body>
 </html>
-
-

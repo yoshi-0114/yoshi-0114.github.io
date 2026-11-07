@@ -1,12 +1,9 @@
-$(function() {
-	$(window).scroll(function () {
-		var TargetPos = 350;
-		var ScrollPos = $(window).scrollTop();
-		if( ScrollPos >= TargetPos) {
-			$("#topbutton").fadeIn();
-		}
-		else {
-			$("#topbutton").fadeOut();
-		}
-	});
-});
+(() => {
+  const button = document.getElementById("backToTop");
+  if (!button) return;
+  const updateVisibility = () => {
+    button.hidden = window.scrollY < 520;
+  };
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  updateVisibility();
+})();
